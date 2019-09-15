@@ -5,7 +5,6 @@ import com.cn.lx.coupon.vo.CommonResponse;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.RestControllerAdvice;
 
-import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 
 /**
@@ -26,8 +25,8 @@ public class GlobalExceptionAdvice {
     public CommonResponse<String> handlerException(
             HttpServletRequest request, CouponException ex){
 
-        CommonResponse<String> commonResponse = new CommonResponse<String>(
-                -1,"business error");
+        CommonResponse<String> commonResponse = new CommonResponse<String>("business error");
+        commonResponse.setCode(ex.getCode());
         commonResponse.setData(ex.getMessage());
         return commonResponse;
     }
