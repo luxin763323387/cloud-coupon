@@ -12,7 +12,7 @@ import java.text.SimpleDateFormat;
  * @date 2019-09-14 10:52
  */
 @Configuration
-public class JacksonConfigration {
+public class JacksonConfiguration {
 
     @Bean
     public ObjectMapper getObjectMapper(){
