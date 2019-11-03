@@ -1,4 +1,4 @@
-package enums;
+package com.cn.lx.coupon.enums;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -7,38 +7,34 @@ import java.util.Objects;
 import java.util.stream.Stream;
 
 /**
- * 优惠券分类
  * @author StevenLu
- * @date 2019-10-27 16:55
+ * @date 2019-10-27 18:45
  */
 @Getter
 @AllArgsConstructor
-public enum CouponCategory {
-
+public enum  PeriodType {
 
     /**
-     * 满减
+     * 固定日期
      */
-    MANJIAN("满减券", "001"),
+    REGULAR("固定的(固定日期)", 1),
     /**
-     * 折扣
+     * 变动日期
      */
-    ZHEKOU("折扣券", "002"),
-    /**
-     * 立减
-     */
-    LIJIAN("立减券", "003");
+    SHIFT("变动的(以领取之日开始计算)", 2);
 
-    private String code;
-
+    /** 有效期描述 */
     private String description;
 
-    public static CouponCategory of(String code){
+    /** 有效期编码 */
+    private Integer code;
+
+    public static PeriodType of(Integer code) {
 
         Objects.requireNonNull(code);
 
         return Stream.of(values())
-                .filter(c -> c.getCode().equals(code))
+                .filter(bean -> bean.code.equals(code))
                 .findAny()
                 .orElseThrow(() -> new IllegalArgumentException(code + " 不存在"));
     }

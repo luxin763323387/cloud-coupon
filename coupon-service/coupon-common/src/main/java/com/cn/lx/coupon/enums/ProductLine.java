@@ -1,4 +1,4 @@
-package enums;
+package com.cn.lx.coupon.enums;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;

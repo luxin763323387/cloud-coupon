@@ -1,4 +1,4 @@
-package enums;
+package com.cn.lx.coupon.enums;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -29,14 +29,15 @@ public enum DistributeTarget {
 
     private Integer code;
 
-    public static DistributeTarget of(Integer code){
+
+    public static DistributeTarget of(Integer code) {
 
         Objects.requireNonNull(code);
 
         return Stream.of(values())
-                .filter(d -> d.getCode().equals(code))
+                .filter(bean -> bean.code.equals(code))
                 .findAny()
-                .orElseThrow(() -> new IllegalArgumentException(code + "不存在"));
+                .orElseThrow(() -> new IllegalArgumentException(code + " not exists!"));
     }
 
 
